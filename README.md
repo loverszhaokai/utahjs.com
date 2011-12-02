@@ -95,6 +95,12 @@ installed on your machine.  If you're on Mac OS X, you've already got it.
 
         cd ${UTAHJS_HOME}/utahjs.com
         bash < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+        exit
+        
+        
+        # Now open a new terminal 
+        
+        cd ${UTAHJS_HOME}
         rvm install ruby-1.9.2
         echo 'gem: --no-rdoc --no-ri' >> ~/.gemrc
         rvm use 1.9.2@utahjs --create
@@ -114,17 +120,13 @@ installed on your machine.  If you're on Mac OS X, you've already got it.
 
 ### Commands
 
-Nanoc ships with several commands, but since the site uses bundler you
-need to prepend all commands with `bundle exec`.  For example, nanoc
-has a static file web server:
-
-    nanoc view
-    # with bundler
-    bundle exec nanoc view
-
-To compile the site:
+To compile and view the site:
 
     bundle exec nanoc compile
+    bundle exec nanoc view
+    
+    open "http://localhost:3000"
+
 
 Autocompile compiles the site on each visit, so you don't have to compile after
 each change you make:
