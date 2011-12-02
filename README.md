@@ -23,6 +23,9 @@ and then writing an article in markdown.
         cd utahjs.com
         
         git remote add upstream git://github.com/UtahJS/utahjs.com
+        
+2. **Every time** you edit content, create a **new branch** (based off of master) for your work:
+
         git checkout master
         git pull upstream master
 
@@ -45,9 +48,16 @@ and then writing an article in markdown.
     The name of your yaml file is a unique identifier for articles you write.
     More on that in a minute.
 
-3.  Create your article in `content/articles` (you can use `example` as a template)
+3.  **Create your article** in `content/articles` (you can use `example` as a template)
 
-        cd utahjs.com/content/articles
+        cd utahjs.com
+
+        git checkout master
+        git pull upstream master
+
+        git checkout -b my-articles
+
+        cd content/articles
         mkdir my-article
         rsync -a example/index.md my-article/
         
@@ -77,6 +87,13 @@ and then writing an article in markdown.
         
         git pull upstream master
         git push origin my-article
+        
+4. Submit a Pull Request
+
+    * Go to your Fork on Github (click "Your Fork" from the mainline [UtahJS/utahjs.com](http://github.com/UtahJS/utahjs.com) repo)
+    * Select the `my-article` branch (mid/upper right)
+    * Click `Pull Request` (upper right)
+    * Wait for Acceptance and or Feedback
                 
 5. Accept feedback gracefully and refine your article, or merge everything back together
 
