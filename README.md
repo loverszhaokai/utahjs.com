@@ -18,10 +18,11 @@ and then writing an article in markdown.
         
         cd ~
 
-        git clone git@github.com:UtahJS/utahjs.com.git
-        git remote add upstream git://github.com/UtahJS/utahjs.com
+        git clone git@github.com:YOUR_GITHUB_ACCOUNT/utahjs.com.git
         
         cd utahjs.com
+        
+        git remote add upstream git://github.com/UtahJS/utahjs.com
         git checkout master
         git pull upstream master
 
