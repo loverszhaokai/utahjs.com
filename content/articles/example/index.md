@@ -6,12 +6,36 @@ date: 2011-07-01
 
 If your article has assets, create a folder like this one and stick them there, and name the article index.
 
+Markdown
+====
+
+Here's a bulleted list:
+
+  * bullets
+  * bullets
+
+Here's a numbered list:
+
+  1. item
+  2. item
+
+This is one paragraph.
+This sentence is part of that paragraph.
+
+This is a new paragraph.
+
+[Google](http://google.com)
+
 Code Blocks
 -----------
 
 Include code blocks like this:
 
-<%= code '01.js' %>
+    var foo = bar;
+
+Or from a file like this:
+
+<%= code 'example.js' %>
 
 The path is relative to the article's folder.
 
