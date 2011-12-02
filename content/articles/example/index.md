@@ -35,7 +35,7 @@ Include code blocks like this:
 
 Or from a file like this:
 
-<%= code 'example.js' %>
+<%= code 'foo.js' %>
 
 The path is relative to the article's folder.
 
