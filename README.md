@@ -89,7 +89,7 @@ installed on your machine.  If you're on Mac OS X, you've already got it.
 
         UTAHJS_HOME=~/Code
         cd ${UTAHJS_HOME}
-        git clone git@github.com:UtahJS/utahjs.com.git
+        git clone git://github.com/UtahJS/utahjs.com.git
 
 2.  Install rvm, ruby, and [bundler][bundler] (Ubuntu / OS X)
 
@@ -97,8 +97,7 @@ installed on your machine.  If you're on Mac OS X, you've already got it.
         bash < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
         exit
         
-        
-        # Now open a new terminal 
+    Now open a new terminal 
         
         cd ${UTAHJS_HOME}
         rvm install ruby-1.9.2
