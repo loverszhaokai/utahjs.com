@@ -1,32 +1,36 @@
 UtahJS.com
 ==========
 
-This is the repository for the [utahjs.com](http://utahjs.com) website. All are
-welcome to contribute.
+This is the repository for the [utahjs.com](http://utahjs.com) website.
+All are welcome to contribute.
 
 How to Contribute
 -----------------
 
-Visit #utahjs on freenode for help _any time_.  I'm there most of the day.
+Visit #utahjs on freenode for help _any time_.
+At the very least, [Ryan Florence](http://ryanflorence.com) is there most of the day.
 
 Contributing is easy. The website is built on [nanoc][nanoc], a static site
 compiler.  Contributing is as easy as adding a member profile yaml file,
 and then writing an article in markdown.
 
-1.  Fork the repository (or ask for push/pull access on the mailing list), check out a new branch off of master.
-
-        # If you have push/pull access
-        git clone git@github.com:UtahJS/utahjs.com
+1.  Fork the repository and check out a new branch off of master.
         
-        # If you don't
-        git clone git://github.com/UtahJS/utahjs.com
+        cd ~
+
+        git clone git@github.com:UtahJS/utahjs.com.git
+        git remote add upstream git://github.com/UtahJS/utahjs.com
         
         cd utahjs.com
         git checkout master
+        git pull upstream master
+
         git checkout -b my-articles
 
 2.  Add your member profile to `content/members`. It should look something
     like `content/members/Ryan Florence.yml`:
+
+        open content/members/First\ Last.yml
 
         name: Ryan Florence
         email: your.email@ddress.com
@@ -40,25 +44,27 @@ and then writing an article in markdown.
     The name of your yaml file is a unique identifier for articles you write.
     More on that in a minute.
 
-3.  Write an article in markdown, html, or haml in the
-    `content/articles` directory.  The name of the file becomes the url
-    of the article.  At the top of the article is some configuration.
+3.  Create your article in `content/articles` (you can use `example` as a template)
 
+        cd utahjs.com/content/articles
+        mkdir my-article
+        rsync -a example/index.md my-article/
+        
+    And season to taste:
+    
+        open my-article/index.md
+        
+    In particular you'll need to change the YAML meta-data
+    
         ---
         title: Sample article title
         author: Ryan Florence
         date: 2011-08-17
         ---
-        
-        Then write your article here.
-
-    Your article extension needs to match the filter you want:
     
-        article-name.md -> filtered with markdown
-        article-name.haml -> filtered with haml
-        article-name.html -> not filtered
-
-    Check out `content/articles/example/index.md`
+    Note: If you need to do something that markdown doesn't support (such as a table), you can use inline html.
+    
+    Note: You can also use `index.haml`. You can also put html (such as a table) inside of your markdown.
 
 4.  Push to the repository (and perhaps send a pull request).
 
@@ -68,13 +74,18 @@ and then writing an article in markdown.
         git add content/articles/my-article.md
         git commit -m 'added "My Article"'
         
-        git checkout master
-        git pull
-        
-        git merge my-article
-        git push
+        git pull upstream master
+        git push origin my-article
+                
+5. Accept feedback gracefully and refine your article, or merge everything back together
 
-You can look at `articles/example` to see how to use some of the helpers.
+        cd utahjs.com
+        
+        git checkout master
+        git merge my-article
+        
+        git push origin master
+
 
 Viewing Locally
 ---------------
