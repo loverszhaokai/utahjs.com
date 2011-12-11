@@ -156,3 +156,12 @@ and then writing an article in markdown.
 
   [nanoc]:http://nanoc.stoneship.org/
   [bundler]:http://gembundler.com/
+
+License
+===
+
+The code examples and content on this site are licensed 
+under the following licenses unless otherwise stated:
+
+  * The MIT License
+  * Apache License 2
