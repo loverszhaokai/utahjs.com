@@ -14,7 +14,43 @@ Contributing is easy. The website is built on [nanoc][nanoc], a static site
 compiler.  Contributing is as easy as adding a member profile yaml file,
 and then writing an article in markdown.
 
-1.  Fork the repository and check out a new branch off of master.
+### Prerequisite Setup (Ruby)
+
+1.  Fork the repository
+
+        UTAHJS_HOME=~/Code
+        cd ${UTAHJS_HOME}
+        git clone git://github.com/UtahJS/utahjs.com.git
+
+2.  Install rvm, ruby, and [bundler][bundler] (Ubuntu / OS X)
+
+        cd ${UTAHJS_HOME}/utahjs.com
+        bash < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+        exit
+        
+    Now open a new terminal 
+        
+        cd ${UTAHJS_HOME}
+        rvm install ruby-1.9.2
+        echo 'gem: --no-rdoc --no-ri' >> ~/.gemrc
+        rvm use 1.9.2@utahjs --create
+        # that's just a shortcut for:
+        #   rvm use ruby-1.9.2
+        #   rvm gemset create utahjs
+        #   rvm gemset use utahjs
+        rvm gemset list
+        gem install bundler
+
+3.  Now, with bundler, install the gem dependencies
+
+        bundle install
+
+    All of the required ruby gems, including nanoc, should be installed locally
+    for this project now.
+
+### Contributing
+
+0.  Fork the repository and check out a new branch off of master.
         
         cd ~
 
@@ -24,7 +60,7 @@ and then writing an article in markdown.
         
         git remote add upstream git://github.com/UtahJS/utahjs.com
         
-2. **Every time** you edit content, create a **new branch** (based off of master) for your work:
+1. **Every time** you edit content, create a **new branch** (based off of master) for your work:
 
         git checkout master
         git pull upstream master
@@ -77,7 +113,20 @@ and then writing an article in markdown.
     
     Note: You can also use `index.haml`. You can also put html (such as a table) inside of your markdown.
 
-4.  Push to the repository (and perhaps send a pull request).
+4. Preview your changes
+
+    To compile and view the site:
+
+        bundle exec nanoc compile
+        bundle exec nanoc view
+    
+        open "http://localhost:3000"
+        
+    Alternatively, you can launch nanoc in autocompile-compile mode so that the site is compiled each visit:
+    
+        bundle exec nanoc autocompile
+
+5.  Push to the repository (and perhaps send a pull request).
 
         git add content/members/First\ Last.yml
         git commit -m 'added "First Last" as member'
@@ -88,14 +137,14 @@ and then writing an article in markdown.
         git pull upstream master
         git push origin my-article
         
-4. Submit a Pull Request
+6. Submit a Pull Request
 
     * Go to your Fork on Github (click "Your Fork" from the mainline [UtahJS/utahjs.com](http://github.com/UtahJS/utahjs.com) repo)
     * Select the `my-article` branch (mid/upper right)
     * Click `Pull Request` (upper right)
     * Wait for Acceptance and or Feedback
                 
-5. Accept feedback gracefully and refine your article, or merge everything back together
+7. Accept feedback gracefully and refine your article, or merge everything back together
 
         cd utahjs.com
         
@@ -104,62 +153,8 @@ and then writing an article in markdown.
         
         git push origin master
 
-
-Viewing Locally
----------------
-
-If you want to view the site locally it's a bit more involved. You'll need ruby
-installed on your machine.  If you're on Mac OS X, you've already got it.
-
-### Setup
-
-0.  Post to utahjs@googlegroups.com and ask for Push / Pull access
-1.  Fork the repository
-
-        UTAHJS_HOME=~/Code
-        cd ${UTAHJS_HOME}
-        git clone git://github.com/UtahJS/utahjs.com.git
-
-2.  Install rvm, ruby, and [bundler][bundler] (Ubuntu / OS X)
-
-        cd ${UTAHJS_HOME}/utahjs.com
-        bash < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
-        exit
-        
-    Now open a new terminal 
-        
-        cd ${UTAHJS_HOME}
-        rvm install ruby-1.9.2
-        echo 'gem: --no-rdoc --no-ri' >> ~/.gemrc
-        rvm use 1.9.2@utahjs --create
-        # that's just a shortcut for:
-        #   rvm use ruby-1.9.2
-        #   rvm gemset create utahjs
-        #   rvm gemset use utahjs
-        rvm gemset list
-        gem install bundler
-
-3.  Now, with bundler, install the gem dependencies
-
-        bundle install
-
-    All of the required ruby gems, including nanoc, should be installed locally
-    for this project now.
-
-### Commands
-
-To compile and view the site:
-
-    bundle exec nanoc compile
-    bundle exec nanoc view
-    
-    open "http://localhost:3000"
-
-
-Autocompile compiles the site on each visit, so you don't have to compile after
-each change you make:
-
-    bundle exec nanoc autocompile
+Appendix
+----
 
 Check out the [nanoc][nanoc] website to learn more about the platform utahjs.com is built on.
 
