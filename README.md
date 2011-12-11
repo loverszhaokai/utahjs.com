@@ -11,7 +11,7 @@ Visit #utahjs on freenode for help _any time_.
 At the very least, [Ryan Florence](http://ryanflorence.com) is there most of the day.
 
 Contributing is easy. The website is built on [nanoc][nanoc], a static site
-compiler.  Contributing is as easy as adding a member profile yaml file,
+compiler. Contributing is as easy as adding a member profile yaml file,
 and then writing an article in markdown.
 
 ### Prerequisite Setup (Ruby)
@@ -153,10 +153,6 @@ and then writing an article in markdown.
         
         git push origin master
 
-Appendix
-----
-
-Check out the [nanoc][nanoc] website to learn more about the platform utahjs.com is built on.
 
   [nanoc]:http://nanoc.stoneship.org/
   [bundler]:http://gembundler.com/
